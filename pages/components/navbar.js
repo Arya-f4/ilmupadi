@@ -2,19 +2,16 @@ import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
-
+import Document from "../document";
 const Navbar = () => {
   const navigation = [
-    "features",
-    "profile",
-    "staff",
-    "pricing",
-    "company",
+    "home",
     "blog",
   ];
 
   return (
     <div className="z-50 w-full fixed bg-opacity-100 backdrop-filter backdrop-blur">
+      
       <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
         {/* Logo  */}
         <Disclosure>
@@ -22,7 +19,7 @@ const Navbar = () => {
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-blue-500 dark:text-gray-100">
+                  <span className="flex items-center space-x-2 text-2xl font-medium text-gray-500 dark:text-gray-100">
                     <span>
                       <Image
                         src="/img/logo"
@@ -32,7 +29,7 @@ const Navbar = () => {
                         className="w-8"
                       />
                     </span>
-                    <span>Arunika Niskala</span>
+                    <span>Ilmu Padi</span>
                   </span>
                 </Link>
 
@@ -66,8 +63,8 @@ const Navbar = () => {
                         {item}
                       </Link>
                     ))}
-                    <Link href="/" className="w-full px-6 py-2 mt-3 text-center text-white bg-blue-600 rounded-md lg:ml-5">
-                      Konsultasi Sekarang!
+                    <Link href="/questioner" className="w-full px-6 py-2 mt-3 text-center text-white bg-skin-main rounded-md lg:ml-5">
+                      Test Assesment Sekarang!
                     </Link>
                   </>
                 </Disclosure.Panel>
@@ -90,7 +87,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden mr-3 space-x-4 lg:flex nav__item">
-          <Link href="/" className="px-6 py-2 text-white bg-blue-600 rounded-md md:ml-5">
+          <Link href="/" className="px-6 py-2 text-white bg-skin-main rounded-md md:ml-5">
             Get Started
           </Link>
 

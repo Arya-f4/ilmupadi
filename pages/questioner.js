@@ -102,7 +102,7 @@ const Questioner = () => {
   };
 
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-skin-gray">
       <Document />
       <div className=" bg-skin-main py-5 px-7 flex items-center justify-between shadow-lg fixed w-screen top-0 z-40">
         <div className="flex items-center">
