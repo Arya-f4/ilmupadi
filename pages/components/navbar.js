@@ -2,16 +2,19 @@ import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image"
 import { Disclosure } from "@headlessui/react";
-import Document from "../document";
+import { motion } from "framer-motion"; // Import Framer Motion
+
 const Navbar = () => {
   const navigation = [
-    "home",
+    
     "blog",
+    "about",
+    "team",
   ];
 
   return (
     <div className="z-50 w-full fixed bg-opacity-100 backdrop-filter backdrop-blur">
-      
+
       <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
         {/* Logo  */}
         <Disclosure>
@@ -19,23 +22,23 @@ const Navbar = () => {
             <>
               <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <Link href="/">
-                  <span className="flex items-center space-x-2 text-2xl font-medium text-gray-500 dark:text-gray-100">
+                  <span className="flex items-center space-x-2 text-2xl font-medium  text-black">
                     <span>
                       <Image
-                        src="/img/logo"
-                        alt="N"
-                        width="32"
-                        height="32"
-                        className="w-8"
+                        src="/favnobg.png"
+                        alt="logo ilmu padi"
+                        width={300}
+                        height={300}
+                        className="w-10"
                       />
                     </span>
-                    <span>Ilmu Padi</span>
+                    <div className="text-green-700">Consume Care</div>
                   </span>
                 </Link>
 
                 <Disclosure.Button
                   aria-label="Toggle Menu"
-                  className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700">
+                  className="px-2 py-1 ml-auto rounded-md lg:hidden  focus:outline-none text-black focus:bg-trueGray-700">
                   <svg
                     className="w-6 h-6 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
@@ -56,10 +59,16 @@ const Navbar = () => {
                   </svg>
                 </Disclosure.Button>
 
-                <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+                <Disclosure.Panel as={motion.div} // Apply animation to the panel
+                  initial={{ opacity: 0, scale: 0.8 }} // Set initial opacity to 0
+                  animate={{ scale: 1, opacity: 1 }} // Animate opacity based on open state
+                  exit={{ opacity: 0, scale: 0.8 }}
+
+                  transition={{ type: "spring", duration: 1 }} // Set transition duration
+                  className="flex flex-wrap w-full my-5 lg:hidden">
                   <>
                     {navigation.map((item, index) => (
-                      <Link key={index} href={`/${item.toLowerCase()}`} className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none">
+                      <Link key={index} href={`/${item.toLowerCase()}`} className="w-full px-4 py-2 -ml-4  rounded-md  hover:text-skin-main  focus:bg-tru focus:outline-none">
                         {item}
                       </Link>
                     ))}
@@ -78,7 +87,7 @@ const Navbar = () => {
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
             {navigation.map((menu, index) => (
               <li className="mr-3 nav__item" key={index} href={`/${menu.toLowerCase()}`}>
-                <Link href={`/${menu.toLowerCase()}`} className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md dark:text-gray-200 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-gray-800">
+                <Link href={`/${menu.toLowerCase()}`} className="inline-block px-4 py-2 text-lg font-normal text-gray-800 no-underline rounded-md hover:text-green-500 focus:outline-none ">
                   {menu}
                 </Link>
               </li>
@@ -91,7 +100,7 @@ const Navbar = () => {
             Get Started
           </Link>
 
-          <ThemeChanger />
+
         </div>
       </nav>
     </div>
