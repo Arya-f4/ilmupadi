@@ -406,3 +406,86 @@ info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/d
 [debug] [2024-05-04T10:31:11.499Z] Error: ENOENT: no such file or directory, open 'C:\projects\javascript\next\kampanye-consume\.next\export-marker.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2024-05-04T10:49:25.954Z] ----------------------------------------------------------------------
+[debug] [2024-05-04T10:49:25.961Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DSID-UNAIR\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-05-04T10:49:25.962Z] CLI Version:   13.6.0
+[debug] [2024-05-04T10:49:25.962Z] Platform:      win32
+[debug] [2024-05-04T10:49:25.963Z] Node Version:  v20.11.1
+[debug] [2024-05-04T10:49:25.963Z] Time:          Sat May 04 2024 17:49:25 GMT+0700 (Indochina Time)
+[debug] [2024-05-04T10:49:25.963Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-04T10:49:26.155Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-04T10:49:26.157Z] > authorizing via signed-in user (natanael.suharyanto@gmail.com)
+[debug] [2024-05-04T10:49:26.157Z] [iam] checking project consume-care for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-05-04T10:49:26.162Z] > refreshing access token with scopes: []
+[debug] [2024-05-04T10:49:26.166Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-05-04T10:49:26.166Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-04T10:49:26.415Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-05-04T10:49:26.415Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-04T10:49:26.426Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions [none]
+[debug] [2024-05-04T10:49:26.426Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions x-goog-quota-user=projects/consume-care
+[debug] [2024-05-04T10:49:26.426Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-04T10:49:27.549Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions 200
+[debug] [2024-05-04T10:49:27.550Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-04T10:49:27.551Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care [none]
+[debug] [2024-05-04T10:49:28.108Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care 200
+[debug] [2024-05-04T10:49:28.109Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/consume-care {"projectId":"consume-care","projectNumber":"876917470097","displayName":"Consume Care","name":"projects/consume-care","resources":{"hostingSite":"consume-care","storageBucket":"consume-care.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_410d582d-f635-4c18-8dd4-5ea6c7082486"}
+[debug] [2024-05-04T10:49:35.829Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites pageToken=&pageSize=10
+[debug] [2024-05-04T10:49:36.547Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 200
+[debug] [2024-05-04T10:49:36.547Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites {"sites":[{"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"},{"name":"projects/consume-care/sites/consumecare","defaultUrl":"https://consumecare.web.app","appId":"1:876917470097:web:37a9cfbe2e5d69fa73e030","type":"USER_SITE"}]}
+[debug] [2024-05-04T10:49:36.548Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 
+[debug] [2024-05-04T10:49:36.970Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 200
+[debug] [2024-05-04T10:49:36.970Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites {"sites":[{"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"},{"name":"projects/consume-care/sites/consumecare","defaultUrl":"https://consumecare.web.app","appId":"1:876917470097:web:37a9cfbe2e5d69fa73e030","type":"USER_SITE"}]}
+[debug] [2024-05-04T10:49:36.971Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config [none]
+[debug] [2024-05-04T10:49:38.149Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config 200
+[debug] [2024-05-04T10:49:38.149Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config {"projectId":"consume-care","storageBucket":"consume-care.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyBodGJHul3KWdqNCrfCiJBeQid7mlkabyU","authDomain":"consume-care.firebaseapp.com","messagingSenderId":"876917470097"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-05-04T10:49:54.590Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care [none]
+[debug] [2024-05-04T10:49:55.206Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care 200
+[debug] [2024-05-04T10:49:55.206Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care {"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.3
+
+[info]   - Environments: .env
+
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+Failed to compile.
+
+[info] 
+./pages/blog/[id].js
+46:9  Error: Missing "key" prop for element in iterator  react/jsx-key
+51:249  Error: No duplicate props allowed  react/jsx-no-duplicate-props
+68:58  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+68:58  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+72:245  Error: No duplicate props allowed  react/jsx-no-duplicate-props
+
+./pages/components/blog.js
+43:15  Error: Missing "key" prop for element in iterator  react/jsx-key
+85:58  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+85:58  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+89:27  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./pages/components/Hero.js
+45:21  Warning: Image elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./pages/document.js
+13:7  Warning: Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+17:7  Warning: Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[debug] [2024-05-04T10:50:06.150Z] Error: ENOENT: no such file or directory, open 'C:\projects\javascript\next\kampanye-consume\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.

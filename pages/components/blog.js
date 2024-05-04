@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
 const Blog = () => {
   const blogVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -40,6 +40,7 @@ const Blog = () => {
         <div className="grid grid-cols-1 gap-4">
           {blogData &&
             blogData.map((blog) => (
+              // eslint-disable-next-line react/jsx-key
               <Link href={`/blog/${blog.id}`} className="flex items-start">
                 <motion.div
                   key={blog.id}
@@ -82,11 +83,11 @@ const Blog = () => {
                             h6: ({ node, ...props }) => <div key={node.key} className="text-md font-bold  text-gray-750" {...props} />,
                             p: ({ node, ...props }) => <div key={node.key} className="text-base text-gray-600 " {...props} />,
                             code: ({ node, ...props }) => <div key={node.key} className='p-4 card rounded-2xl mt-4 bg-trueGray-950 overflow-auto'><code className='text-xs text-yellow-500 text-left rounded-md' {...props} /></div>,
-                            img: ({ node, ...props }) => <img {...props} key={node.key} className="w-full h-auto rounded-md mx-auto" />
+                            img: ({ node, ...props }) => <Image height={500} width={500} {...props} key={node.key} alt="Consume Image" className="w-full h-auto rounded-md mx-auto" />
                           }} remarkPlugins={[remarkGfm]}>{content.value}</Markdown>
                         )}
                         {content.type === 'images' && content.value.map((image, imgIndex) => (
-                          <img key={imgIndex} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} alt="Blog Image" className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
+                          <Image height={500} width={500} key={imgIndex} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} alt="Blog Image" className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
                         ))}
                       </div>
                     ))}

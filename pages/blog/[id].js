@@ -43,12 +43,13 @@ const DetailedBlog = () => {
       </Head>
       <Navbar />
       {blogData && blogData.map((blog, index) => (
+        // eslint-disable-next-line react/jsx-key
         <motion.div className='bg-skin-gray h-full' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
           <Container Name="flex flex-wrap">
             <div key={blog.id} className="drop-shadow-lg container mx-auto p-4 py-12 md:py-16 dark:bg-trueGray-800 rounded-2xl"> {/* Menambahkan dark mode */}
               <h1 className="text-2xl font-bold text-blue-600 mb-4">{blogData.title}</h1>
               <div className="bg-skin-gray p-4 border border-black dark:bg-trueGray-800 my-4 rounded-lg text-left"> {/* Menengahkan gambar */}
-                <Image width={500} key={index} height={500} alt={"Consume care image"} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(blog.data.header_image.split('/').pop())}?alt=media`} alt={blog.data.name} className="w-1/2 drop-shadow-xl border-black h-auto rounded-md mx-auto" /> {/* Menengahkan gambar */}
+                <Image width={500} key={index} height={500} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(blog.data.header_image.split('/').pop())}?alt=media`} alt={blog.data.name} className="w-1/2 drop-shadow-xl border-black h-auto rounded-md mx-auto" /> {/* Menengahkan gambar */}
                 <div className="flex-col items-start ml-4  ">
                   <div className="text-4xl font-bold mt-2">{blog.data.name}</div>
                   <div className="text-gray-600 mt-4">Dipublikasikan pada {new Date(blog.data.publish_date.seconds * 1000).toLocaleDateString()}</div>
@@ -65,11 +66,11 @@ const DetailedBlog = () => {
                             h6: ({ node, ...props }) => <div className="text-md font-bold  text-gray-750" {...props} />,
                             p: ({ node, ...props }) => <div className="text-base text-gray-600 " {...props} />,
                             code: ({ node, ...props }) => <Image width={500} height={500} alt={"Consume care image"} className='p-4 card rounded-2xl mt-4 bg-trueGray-950 overflow-auto'><code className='text-xs text-yellow-500 text-left rounded-md' {...props} /></Image>,
-                            img: ({ node, ...props }) => <img {...props} className="w-full h-auto rounded-md mx-auto" />
+                            img: ({ node, ...props }) => <Image {...props} width={500} height={500} alt='secondary image' className="w-full h-auto rounded-md mx-auto" />
                           }} remarkPlugins={[remarkGfm]}>{content.value}</Markdown>
                         )}
                         {content.type === 'images' && content.value.map((image, imgIndex) => (
-                          <Image width={500} height={500} alt={"Consume Care Image"} key={imgIndex} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} alt="Blog Image" className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
+                          <Image width={500} height={500} key={imgIndex} alt={"Consume Care Image"} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
                         ))}
                       </div>
                     ))}
