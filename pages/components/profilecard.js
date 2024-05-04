@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { teamData } from '../../database/teamData';
-const ProfileCard = ({ team, onClose }) => {
+const Profilecard = ({ team, onClose }) => {
   return (
     <motion.div
       initial={{ opacity: -1, y: -100 }}
@@ -93,4 +92,4 @@ const ProfileCard = ({ team, onClose }) => {
   );
 };
 
-export default ProfileCard;
+export default Profilecard;

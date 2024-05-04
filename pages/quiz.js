@@ -2,7 +2,7 @@ import Head from 'next/head';
 import questions from '../database/dbquiz';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Container from './components/Container';
 import { motion } from 'framer-motion';
 import Link from 'next/link';

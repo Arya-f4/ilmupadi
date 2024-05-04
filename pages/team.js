@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/navbar';
 import Head from 'next/head';
-import Link from 'next/link';
 import Footer from './components/Footer';
 import Container from './components/Container';
 import { motion } from 'framer-motion'; // Menambahkan import motion dari framer-motion
 import Image from 'next/image';
 import { teamData } from '../database/teamData';
-import ProfileCard from './components/profilecard';
+import Profilecard from './components/profilecard';
 
 const Team = () => {
-  const [loading, setLoading] = useState(true); // Menambahkan state loading
   const [ToggleCard, setToggleCard] = useState(false);
   const handleCardClick = (index) => {
     setToggleCard(index);
@@ -50,7 +48,7 @@ const Team = () => {
             </motion.div>
           ))}
         </motion.div>
-        {ToggleCard !== false && <ProfileCard team={teamData[ToggleCard]} onClose={() => setToggleCard(false)} />}
+        {ToggleCard !== false && <Profilecard team={teamData[ToggleCard]} onClose={() => setToggleCard(false)} />}
       </Container>
       <Footer />
       {/* Display blogData in the component */}
