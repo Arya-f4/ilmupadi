@@ -78,11 +78,11 @@ const Blog = () => {
       <div className='h-fit bg-skin-gray'>
 
       <Container className="h-full bg-skin-gray flex flex-wrap pt-24 ">
-      <motion.h1
+      <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className='text-4xl my-4 font-bold leading-snug tracking-tight text-center'>Blog Page</motion.h1>
+                        className='text-4xl my-4 font-bold leading-snug text-center'>Blog Page</motion.div>
         <div className="right mt-10 ml-10">
           <div className="flex items-center bg-skin-gray rounded-full px-3 py-1">
             <span className="text-sm font-semibold mr-2">Filter by Tag:</span>
@@ -170,9 +170,10 @@ const Blog = () => {
         )}
       </Container >
 
-                </div>
+               
       
       <Footer/>
+      </div>
       {/* Display blogData in the component */}
     </div>
   );

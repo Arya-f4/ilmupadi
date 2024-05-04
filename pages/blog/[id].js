@@ -47,24 +47,29 @@ const DetailedBlog = () => {
             <div className="drop-shadow-lg container mx-auto p-4 py-12 md:py-16 dark:bg-trueGray-800 rounded-2xl"> {/* Menambahkan dark mode */}
               <h1 className="text-2xl font-bold text-blue-600 mb-4">{blogData.title}</h1>
               <div className="bg-skin-gray p-4 border border-black dark:bg-trueGray-800 my-4 rounded-lg text-left"> {/* Menengahkan gambar */}
-                <img src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${blog.data.header_image.split('/').pop()}?alt=media`} alt={blog.data.name} className="w-1/2 drop-shadow-xl border-black h-auto rounded-md mx-auto" /> {/* Menengahkan gambar */}
+                <img src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(blog.data.header_image.split('/').pop())}?alt=media`} alt={blog.data.name} className="w-1/2 drop-shadow-xl border-black h-auto rounded-md mx-auto" /> {/* Menengahkan gambar */}
                 <div className="flex-col items-start ml-4  ">
-                  <h2 className="text-4xl font-bold mt-2">{blog.data.name}</h2>
-                  <p className="text-gray-600 mt-4">Dipublikasikan pada {new Date(blog.data.publish_date.seconds * 1000).toLocaleDateString()}</p>
+                  <div className="text-4xl font-bold mt-2">{blog.data.name}</div>
+                  <div className="text-gray-600 mt-4">Dipublikasikan pada {new Date(blog.data.publish_date.seconds * 1000).toLocaleDateString()}</div>
                   <div className="mt-4">
                     {blog.data.content.map((content, index) => (
-                      <div key={index} id='content' >
-                        {<Markdown components={{
-                          h1: ({ children }) => <h1 className="text-4xl left-0 font-bold ">{children}</h1>,
-                          h2: ({ children }) => <h2 className="text-3xl font-bold  text-gray-950">{children}</h2>,
-                          h3: ({ children }) => <h3 className="text-2xl font-bold  text-gray-900">{children}</h3>,
-                          h4: ({ children }) => <h4 className="text-xl font-bold  text-gray-850">{children}</h4>,
-                          h5: ({ children }) => <h5 className="text-lg font-bold  text-gray-800">{children}</h5>,
-                          h6: ({ children }) => <h6 className="text-md font-bold  text-gray-750">{children}</h6>,
-                          p: ({ children }) => <p className="text-base text-gray-600 ">{children}</p>,
-                          code: ({ children }) => <div className='p-4 card rounded-2xl mt-4 bg-trueGray-950 overflow-auto'><code className='text-xs text-yellow-500 text-left rounded-md'>{children}</code></div>,
-                          // Tambahkan definisi kelas untuk elemen-elemen lain seperti h4, h5, h6 di sini
-                        }} remarkPlugins={[remarkGfm]}>{content.value}</Markdown>} {/* Mengubah createRoot menjadi Markdown */}
+                      <div key={index} id='content'>
+                        {content.type === 'text' && (
+                          <Markdown components={{
+                            h1: ({ node, ...props }) => <div className="text-4xl left-0 font-bold " {...props} />,
+                            h2: ({ node, ...props }) => <div className="text-3xl font-bold  text-gray-950" {...props} />,
+                            h3: ({ node, ...props }) => <div className="text-2xl font-bold  text-gray-900" {...props} />,
+                            h4: ({ node, ...props }) => <div className="text-xl font-bold  text-gray-850" {...props} />,
+                            h5: ({ node, ...props }) => <div className="text-lg font-bold  text-gray-800" {...props} />,
+                            h6: ({ node, ...props }) => <div className="text-md font-bold  text-gray-750" {...props} />,
+                            p: ({ node, ...props }) => <div className="text-base text-gray-600 " {...props} />,
+                            code: ({ node, ...props }) => <div className='p-4 card rounded-2xl mt-4 bg-trueGray-950 overflow-auto'><code className='text-xs text-yellow-500 text-left rounded-md' {...props} /></div>,
+                            img: ({ node, ...props }) => <img {...props} className="w-full h-auto rounded-md mx-auto" />
+                          }} remarkPlugins={[remarkGfm]}>{content.value}</Markdown>
+                        )}
+                        {content.type === 'images' && content.value.map((image, imgIndex) => (
+                          <img key={imgIndex} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} alt="Blog Image" className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
+                        ))}
                       </div>
                     ))}
                   </div>

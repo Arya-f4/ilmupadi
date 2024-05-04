@@ -97,11 +97,11 @@ const questions = [
         id:9,
         question: "Saya mampu mengelola keuangan.",
         options: [
-          { value: 5, label: "Sangat Setuju" },
-          { value: 4, label: "Setuju" },
+          { value: 1, label: "Sangat Setuju" },
+          { value: 2, label: "Setuju" },
           { value: 3, label: "Netral" },
-          { value: 2, label: "Tidak Setuju" },
-          { value: 1, label: "Sangat Tidak Setuju" },
+          { value: 4, label: "Tidak Setuju" },
+          { value: 5, label: "Sangat Tidak Setuju" },
         ],
       }
       ,

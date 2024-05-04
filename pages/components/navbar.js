@@ -6,10 +6,10 @@ import { motion } from "framer-motion"; // Import Framer Motion
 
 const Navbar = () => {
   const navigation = [
-    
+
     "blog",
     "about",
-    "team",
+    ,
   ];
 
   return (
@@ -72,7 +72,7 @@ const Navbar = () => {
                         {item}
                       </Link>
                     ))}
-                    <Link href="/questioner" className="w-full px-6 py-2 mt-3 text-center text-white bg-skin-main rounded-md lg:ml-5">
+                    <Link href="/quiz" className="w-full px-6 py-2 mt-3 text-center text-white bg-skin-main rounded-md lg:ml-5">
                       Test Assesment Sekarang!
                     </Link>
                   </>
