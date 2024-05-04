@@ -16,3 +16,107 @@
 [debug] [2024-05-04T08:24:38.687Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
 [debug] [2024-05-04T08:24:38.688Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care [none]
 [debug] [2024-05-04T08:24:39.059Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care 200
+[debug] [2024-05-04T08:25:09.793Z] ----------------------------------------------------------------------
+[debug] [2024-05-04T08:25:09.798Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DSID-UNAIR\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-05-04T08:25:09.799Z] CLI Version:   13.6.0
+[debug] [2024-05-04T08:25:09.799Z] Platform:      win32
+[debug] [2024-05-04T08:25:09.800Z] Node Version:  v20.11.1
+[debug] [2024-05-04T08:25:09.800Z] Time:          Sat May 04 2024 15:25:09 GMT+0700 (Indochina Time)
+[debug] [2024-05-04T08:25:09.800Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-04T08:25:09.924Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-04T08:25:09.924Z] > authorizing via signed-in user (natanael.suharyanto@gmail.com)
+[debug] [2024-05-04T08:25:09.925Z] [iam] checking project consume-care for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-05-04T08:25:09.928Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions [none]
+[debug] [2024-05-04T08:25:09.928Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions x-goog-quota-user=projects/consume-care
+[debug] [2024-05-04T08:25:09.928Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-04T08:25:11.170Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions 200
+[debug] [2024-05-04T08:25:11.171Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-04T08:25:11.172Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care [none]
+[debug] [2024-05-04T08:25:11.873Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care 200
+[debug] [2024-05-04T08:25:11.873Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/consume-care {"projectId":"consume-care","projectNumber":"876917470097","displayName":"Consume Care","name":"projects/consume-care","resources":{"hostingSite":"consume-care","storageBucket":"consume-care.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_410d582d-f635-4c18-8dd4-5ea6c7082486"}
+[debug] [2024-05-04T08:25:18.481Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites pageToken=&pageSize=10
+[debug] [2024-05-04T08:25:19.254Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 200
+[debug] [2024-05-04T08:25:19.256Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites {"sites":[{"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"},{"name":"projects/consume-care/sites/consumecare","defaultUrl":"https://consumecare.web.app","appId":"1:876917470097:web:37a9cfbe2e5d69fa73e030","type":"USER_SITE"}]}
+[debug] [2024-05-04T08:25:19.258Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 
+[debug] [2024-05-04T08:25:19.759Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 200
+[debug] [2024-05-04T08:25:19.759Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites {"sites":[{"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"},{"name":"projects/consume-care/sites/consumecare","defaultUrl":"https://consumecare.web.app","appId":"1:876917470097:web:37a9cfbe2e5d69fa73e030","type":"USER_SITE"}]}
+[debug] [2024-05-04T08:25:19.759Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config [none]
+[debug] [2024-05-04T08:25:21.192Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config 200
+[debug] [2024-05-04T08:25:21.192Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config {"projectId":"consume-care","storageBucket":"consume-care.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyBodGJHul3KWdqNCrfCiJBeQid7mlkabyU","authDomain":"consume-care.firebaseapp.com","messagingSenderId":"876917470097"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-05-04T08:25:34.989Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care [none]
+[debug] [2024-05-04T08:25:35.631Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care 200
+[debug] [2024-05-04T08:25:35.632Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care {"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.3
+
+[info]   - Environments: .env
+
+
+[info]    Linting and checking validity of types ...
+
+[info]  ⨯ ESLint: Failed to load config "next/babel" to extend from. Referenced from: C:\projects\javascript\next\kampanye-consume\.eslintrc.json
+
+[info]    Creating an optimized production build ...
+
+[info]    Disabled SWC as replacement for Babel because of custom Babel configuration ".babelrc" https://nextjs.org/docs/messages/swc-disabled
+
+[info]    Using external babel configuration from C:\projects\javascript\next\kampanye-consume\.babelrc
+
+[info]  ⚠ It looks like there is a custom Babel configuration that can be removed.
+
+[info] Failed to compile.
+
+
+[info] ./pages/team.js
+Module not found: Can't resolve '../components/navbar'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./pages/team.js
+Module not found: Can't resolve '../components/footer'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./pages/team.js
+Module not found: Can't resolve '../components/container'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./pages/team.js
+Module not found: Can't resolve '../components/profilecard'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[info] 
+
+[info] > Build failed because of webpack errors
+
+[debug] [2024-05-04T08:25:52.517Z] Error: ENOENT: no such file or directory, open 'C:\projects\javascript\next\kampanye-consume\.next\server\middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-05-04T09:47:18.865Z] ----------------------------------------------------------------------
+[debug] [2024-05-04T09:47:18.872Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DSID-UNAIR\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-05-04T09:47:18.873Z] CLI Version:   13.6.0
+[debug] [2024-05-04T09:47:18.873Z] Platform:      win32
+[debug] [2024-05-04T09:47:18.874Z] Node Version:  v20.11.1
+[debug] [2024-05-04T09:47:18.874Z] Time:          Sat May 04 2024 16:47:18 GMT+0700 (Indochina Time)
+[debug] [2024-05-04T09:47:18.874Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-04T09:47:19.025Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-04T09:47:19.026Z] > authorizing via signed-in user (natanael.suharyanto@gmail.com)
+[debug] [2024-05-04T09:47:19.026Z] [iam] checking project consume-care for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-05-04T09:47:19.030Z] > refreshing access token with scopes: []
+[debug] [2024-05-04T09:47:19.036Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-05-04T09:47:19.036Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]

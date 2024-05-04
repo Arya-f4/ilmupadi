@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigation = [
 
     "blog",
+    "team",
     "about",
     ,
   ];

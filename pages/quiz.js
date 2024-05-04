@@ -102,34 +102,36 @@ const Quiz = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='flex flex-col items-center justify-center h-full'>
-          <h2 className='text-2xl font-bold mb-4'>Hasil Quiz</h2>
-          <p className='text-lg'>
-            Anda memiliki skor {result} dari {questions.length * 5}. Berikut adalah
-            interpretasi hasilnya:
-          </p>
-          {result < 10 ? (
-            <p className='text-lg'>Anda memiliki tingkat konsumerisme yang sangat rendah.</p>
-          ) : result < 20 ? (
-            <p className='text-lg'>Anda memiliki tingkat konsumerisme yang rendah.</p>
-          )
-            : result < 35 ? (
-              <p className='text-lg'>Anda memiliki tingkat konsumerisme yang sedang.</p>
-            ) : result < 45 ? (
-              <p className='text-lg'>Anda memiliki tingkat konsumerisme yang tinggi.</p>
-            ) : (
-              <p className='text-lg'>Anda memiliki tingkat konsumerisme yang Sangat tinggi.</p>
+        <Container className="py-36">
+          <div className='flex flex-col items-center justify-center h-full'>
+            <h2 className='text-2xl font-bold mb-4'>Hasil Quiz</h2>
+            <p className='text-lg'>
+              Anda memiliki skor {result} dari {questions.length * 5}. Berikut adalah
+              interpretasi hasilnya:
+            </p>
+            {result < 10 ? (
+              <p className='text-lg'>Anda memiliki tingkat konsumerisme yang sangat rendah.</p>
+            ) : result < 20 ? (
+              <p className='text-lg'>Anda memiliki tingkat konsumerisme yang rendah.</p>
             )
-          }
-          <Link
-            href={`/`}>
-            <button
-              className='bg-skin-main hover:bg-lime-950 text-white font-bold py-2 px-4 rounded mt-4'
-            >
-              Back to home
-            </button>
-          </Link>
-        </div>
+              : result < 35 ? (
+                <p className='text-lg'>Anda memiliki tingkat konsumerisme yang sedang.</p>
+              ) : result < 45 ? (
+                <p className='text-lg'>Anda memiliki tingkat konsumerisme yang tinggi.</p>
+              ) : (
+                <p className='text-lg'>Anda memiliki tingkat konsumerisme yang Sangat tinggi.</p>
+              )
+            }
+            <Link
+              href={`/`}>
+              <button
+                className='bg-skin-main hover:bg-lime-950 text-white font-bold py-2 px-4 rounded mt-4'
+              >
+                Back to home
+              </button>
+            </Link>
+          </div>
+        </Container>
       </motion.div>
     );
   };

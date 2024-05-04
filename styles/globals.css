@@ -36,24 +36,72 @@
     color: white;
 
   }
+
   body {
-    margin:0px !important;
+    margin: 0px !important;
   }
 
-      span {
-          font-family: 'Inter', sans-serif;
-          font-size:14px;
-      }
+  span {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+  }
 
-      p {
-          font-family: 'Inter', sans-serif;
-      }
+  p {
+    font-family: 'Inter', sans-serif;
+  }
 
   :root {
     --gray: #F5E9C5;
     --main: #4C8D5C;
-    
+
   }
 
 
+
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .profile-card {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+  }
+
+  .profile-card .card-content {
+    font-size: 1.2rem;
+    padding: 2rem;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+  }
+
+  .profile-card {
+    width: 50%;
+    height: 50%;
+    margin: 25%;
+  }
+
+  .profile-card .card-content {
+    font-size: 1.5rem;
+    padding: 3rem;
+  }
 }
