@@ -37,7 +37,7 @@ const Team = () => {
             >
               <Image
                 src={team.image}
-                alt={`team ${index + 1}`}
+                alt={`team consume care`}
                 width={1000}
                 height={1000}
                 className="rounded-full w-20 h-20 md:w-30 md:h-30 lg:w-40 lg:h-40 object-cover"
