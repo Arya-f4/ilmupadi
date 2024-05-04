@@ -6,8 +6,7 @@ import Container from './components/Container';
 import { motion } from 'framer-motion'; // Menambahkan import motion dari framer-motion
 import Image from 'next/image';
 import { teamData } from '../database/teamData';
-import Profilecard from './components/profilecard';
-
+import ProfileCard from './components/ProfileCard';
 const Team = () => {
   const [ToggleCard, setToggleCard] = useState(false);
   const handleCardClick = (index) => {
@@ -17,10 +16,10 @@ const Team = () => {
   return (
     <div className="bg-skin-gray ">
       <Head>
-        <title>team - Software House</title>
+        <title>team - Consume Care</title>
         <meta
           name="description"
-          content="Arunika Niskala Software House adalah software house dibawah naungan Himpunan Mahasiswa D4 Teknik Informatika"
+          content="Consume care adalah platform yang menyediakan informasi seputar konsumsi"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -36,7 +35,7 @@ const Team = () => {
               onClick={() => handleCardClick(index)}
             >
               <Image
-                src={team.image}
+                src={team.gambar}
                 alt={`team ${index + 1}`}
                 width={1000}
                 height={1000}
@@ -48,8 +47,7 @@ const Team = () => {
             </motion.div>
           ))}
         </motion.div>
-        {ToggleCard !== false && <Profilecard team={teamData[ToggleCard]} onClose={() => setToggleCard(false)} />}
-      </Container>
+        {ToggleCard !== false && teamData[ToggleCard] && <ProfileCard team={teamData[ToggleCard]} onClose={() => setToggleCard(false)} />} </Container>
       <Footer />
       {/* Display blogData in the component */}
     </div>

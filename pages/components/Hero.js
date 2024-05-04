@@ -46,6 +46,7 @@ const Hero = () => {
                         src={`/fav.jpg`}
                         height={400}
                         width={400}
+                        alt={"consume care favicon"}
                     />
                 </div>
             </Container>

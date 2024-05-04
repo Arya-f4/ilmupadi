@@ -2,7 +2,7 @@ import React from 'react';
 import Footercomponent from './components/Footer';
 import Navbar from './components/navbar';
 import { motion } from 'framer-motion'; // Import framer-motion untuk animasi
-
+import Head from 'next/head'; // Import Head dari next/head untuk mengubah title dan meta tag
 const AboutPage = () => {
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -11,6 +11,14 @@ const AboutPage = () => {
 
     return (
         <div className='bg-skin-gray'>
+            <Head>
+                <title>About - Consume Care</title>
+                <meta
+                    name="description"
+                    content="Consume Care merupakan tempat untuk membaca artikel-artikel terbaru seputar dunia konsumsi."
+                />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Navbar />
             <motion.div
                 className="flex flex-col items-center justify-center h-screen bg-skin-gray"

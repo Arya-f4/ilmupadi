@@ -67,10 +67,10 @@ const Blog = () => {
   return (
     <div className='h-screen bg-skin-gray'>
       <Head>
-        <title>Arunika Niskala Software House</title>
+        <title>Blog - Consume Care</title>
         <meta
           name="description"
-          content="Arunika Niskala Software House adalah software house dibawah naungan Himpunan Mahasiswa D4 Teknik Informatika"
+          content="Consume Care blog merupakan tempat untuk membaca artikel-artikel terbaru seputar dunia konsumsi."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
