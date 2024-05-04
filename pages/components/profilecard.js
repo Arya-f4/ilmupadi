@@ -38,6 +38,7 @@ const Profilecard = ({ team, onClose }) => {
                 src={team.image}
                 width={500}
                 height={500}
+                alt={`team consume care`}
                 className='w-30 h-30 md:w-60 md:h-60 mx-auto'
               />
               <div className="sm:flex">
