@@ -74,15 +74,15 @@ const Blog = () => {
                       <div key={index} id='content'>
                         {content.type === 'text' && (
                           <Markdown components={{
-                            h1: ({ node, ...props }) => <div className="text-4xl left-0 font-bold " {...props} />,
-                            h2: ({ node, ...props }) => <div className="text-3xl font-bold  text-gray-950" {...props} />,
-                            h3: ({ node, ...props }) => <div className="text-2xl font-bold  text-gray-900" {...props} />,
-                            h4: ({ node, ...props }) => <div className="text-xl font-bold  text-gray-850" {...props} />,
-                            h5: ({ node, ...props }) => <div className="text-lg font-bold  text-gray-800" {...props} />,
-                            h6: ({ node, ...props }) => <div className="text-md font-bold  text-gray-750" {...props} />,
-                            p: ({ node, ...props }) => <div className="text-base text-gray-600 " {...props} />,
-                            code: ({ node, ...props }) => <div className='p-4 card rounded-2xl mt-4 bg-trueGray-950 overflow-auto'><code className='text-xs text-yellow-500 text-left rounded-md' {...props} /></div>,
-                            img: ({ node, ...props }) => <img {...props} className="w-full h-auto rounded-md mx-auto" />
+                            h1: ({ node, ...props }) => <div key={node.key} className="text-4xl left-0 font-bold " {...props} />,
+                            h2: ({ node, ...props }) => <div key={node.key} className="text-3xl font-bold  text-gray-950" {...props} />,
+                            h3: ({ node, ...props }) => <div key={node.key} className="text-2xl font-bold  text-gray-900" {...props} />,
+                            h4: ({ node, ...props }) => <div key={node.key} className="text-xl font-bold  text-gray-850" {...props} />,
+                            h5: ({ node, ...props }) => <div key={node.key} className="text-lg font-bold  text-gray-800" {...props} />,
+                            h6: ({ node, ...props }) => <div key={node.key} className="text-md font-bold  text-gray-750" {...props} />,
+                            p: ({ node, ...props }) => <div key={node.key} className="text-base text-gray-600 " {...props} />,
+                            code: ({ node, ...props }) => <div key={node.key} className='p-4 card rounded-2xl mt-4 bg-trueGray-950 overflow-auto'><code className='text-xs text-yellow-500 text-left rounded-md' {...props} /></div>,
+                            img: ({ node, ...props }) => <img {...props} key={node.key} className="w-full h-auto rounded-md mx-auto" />
                           }} remarkPlugins={[remarkGfm]}>{content.value}</Markdown>
                         )}
                         {content.type === 'images' && content.value.map((image, imgIndex) => (
