@@ -6,7 +6,7 @@ import Container from './components/Container';
 import { motion } from 'framer-motion'; // Menambahkan import motion dari framer-motion
 import Image from 'next/image';
 import { teamData } from '../database/teamData';
-import ProfileCard from './components/ProfileCard';
+import Profile from './components/profile';
 const Team = () => {
   const [ToggleCard, setToggleCard] = useState(false);
   const handleCardClick = (index) => {
@@ -47,7 +47,7 @@ const Team = () => {
             </motion.div>
           ))}
         </motion.div>
-        {ToggleCard !== false && teamData[ToggleCard] && <ProfileCard team={teamData[ToggleCard]} onClose={() => setToggleCard(false)} />} </Container>
+        {ToggleCard !== false && teamData[ToggleCard] && <Profile team={teamData[ToggleCard]} onClose={() => setToggleCard(false)} />} </Container>
       <Footer />
       {/* Display blogData in the component */}
     </div>

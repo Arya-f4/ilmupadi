@@ -1,7 +1,7 @@
 import React from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-const ProfileCard = ({ team, onClose }) => {
+const Profile = ({ team, onClose }) => {
   if (!team || !team.gambar) {
     return <div>Data tidak lengkap</div>
   }
@@ -121,4 +121,4 @@ const ProfileCard = ({ team, onClose }) => {
   )
 }
 
-export default ProfileCard
+export default Profile
