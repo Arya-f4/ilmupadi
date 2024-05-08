@@ -45,7 +45,7 @@ const Quiz = () => {
     const currentQuestionData = questions[currentQuestion];
     return (
       <motion.div
-        className='flex flex-col items-center justify-center h-full bg-skin-gray p-8 overflow-x-hidden'
+        className='flex flex-col items-center h-[calc(100dvh)] justify-center bg-skin-gray p-4 overflow-x-hidden'
         initial={{ opacity: 0, x: -200 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
