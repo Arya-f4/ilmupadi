@@ -77,7 +77,7 @@ const DetailedBlog = () => {
                        initial={{ opacity: 0 }}
                        animate={{ opacity: 1 }}
                        transition={{ duration: 0.5 }}
-                       src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} 
+                       src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${(image.split('/').pop())}?alt=media`} 
                        alt="Blog Image" 
                        className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
                       ))}
