@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Container from './components/Container';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -45,7 +46,7 @@ const Quiz = () => {
     const currentQuestionData = questions[currentQuestion];
     return (
       <motion.div
-        className='flex flex-col items-center h-[calc(100dvh)] justify-center bg-skin-gray p-4 overflow-x-hidden'
+        className='flex flex-col items-center h-screen justify-center bg-skin-gray p-4 overflow-x-hidden'
         initial={{ opacity: 0, x: -200 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
@@ -103,7 +104,7 @@ const Quiz = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <Container className="py-36">
+        <Container className="py-36 lg:py-24">
           <div className='flex flex-col items-center justify-center h-full'>
             <h2 className='text-2xl font-bold mb-4'>Hasil Quiz</h2>
             <p className='text-lg'>
