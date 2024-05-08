@@ -70,8 +70,8 @@ const DetailedBlog = () => {
                           }} remarkPlugins={[remarkGfm]}>{content.value}</Markdown>
                         )}
                         {content.type === 'images' && content.value.map((image, imgIndex) => (
-                          <Image width={500} height={500} key={imgIndex} alt={"Consume Care Image"} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
-                        ))}
+                       <Image height={500} width={500} key={imgIndex} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(image.split('/').pop())}?alt=media`} alt="Blog Image" className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
+                      ))}
                       </div>
                     ))}
                   </div>
