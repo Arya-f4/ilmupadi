@@ -49,7 +49,7 @@ const DetailedBlog = () => {
             <div key={blog.id} className="drop-shadow-lg container mx-auto p-4 py-12 md:py-16 dark:bg-trueGray-800 rounded-2xl"> {/* Menambahkan dark mode */}
               <h1 className="text-2xl font-bold text-blue-600 mb-4">{blogData.title}</h1>
               <div className="bg-skin-gray p-4 border border-black dark:bg-trueGray-800 my-4 rounded-lg text-left"> {/* Menengahkan gambar */}
-                <Image width={500} key={index} height={500} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(blog.data.header_image.split('/').pop())}?alt=media`} alt={blog.data.name} className="w-1/2 drop-shadow-xl border-black h-auto rounded-md mx-auto" /> {/* Menengahkan gambar */}
+                <Image width={500} height={500} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${encodeURIComponent(blog.data.header_image.split('/').pop())}?alt=media`} alt={blog.data.name} className="w-1/2 drop-shadow-xl border-black h-auto rounded-md mx-auto" /> {/* Menengahkan gambar */}
                 <div className="flex-col items-start ml-4  ">
                   <div className="text-4xl font-bold mt-2">{blog.data.name}</div>
                   <div className="text-gray-600 mt-4">Dipublikasikan pada {new Date(blog.data.publish_date.seconds * 1000).toLocaleDateString()}</div>
