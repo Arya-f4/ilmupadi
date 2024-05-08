@@ -50,7 +50,7 @@ const Quiz = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='lg:mt-28 xl:mt-20'>
+        <div className='lg:pt-32 xl:mt-20'>
         <h2 className='text-xl font-bold mb-4'> Pernyataan {currentQuestionData.id} :</h2>
         <h2 className='text-xl font-bold mb-4'>{currentQuestionData.question}</h2>
         <ul className='space-y-2 flex-wrap'>
