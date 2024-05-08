@@ -121,3 +121,122 @@
     at async deploy (C:\Users\DSID-UNAIR\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:55:13)
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2024-05-08T05:25:26.590Z] ----------------------------------------------------------------------
+[debug] [2024-05-08T05:25:26.593Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DSID-UNAIR\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2024-05-08T05:25:26.594Z] CLI Version:   13.6.0
+[debug] [2024-05-08T05:25:26.594Z] Platform:      win32
+[debug] [2024-05-08T05:25:26.594Z] Node Version:  v20.11.1
+[debug] [2024-05-08T05:25:26.594Z] Time:          Wed May 08 2024 12:25:26 GMT+0700 (Indochina Time)
+[debug] [2024-05-08T05:25:26.594Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-08T05:25:26.599Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-05-08T05:25:26.754Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-08T05:25:26.754Z] > authorizing via signed-in user (natanael.suharyanto@gmail.com)
+[debug] [2024-05-08T05:25:26.759Z] [iam] checking project consume-care for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-05-08T05:25:26.760Z] > refreshing access token with scopes: []
+[debug] [2024-05-08T05:25:26.762Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-05-08T05:25:26.762Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-08T05:25:27.233Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-05-08T05:25:27.234Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-05-08T05:25:27.242Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions [none]
+[debug] [2024-05-08T05:25:27.243Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions x-goog-quota-user=projects/consume-care
+[debug] [2024-05-08T05:25:27.243Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-08T05:25:27.632Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-05-08T05:25:27.632Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-05-08T05:25:28.693Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions 200
+[debug] [2024-05-08T05:25:28.694Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/consume-care:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-05-08T05:25:28.695Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care [none]
+[debug] [2024-05-08T05:25:29.565Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care 200
+[debug] [2024-05-08T05:25:29.565Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/consume-care {"projectId":"consume-care","projectNumber":"876917470097","displayName":"Consume Care","name":"projects/consume-care","resources":{"hostingSite":"consume-care","storageBucket":"consume-care.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE","etag":"1_410d582d-f635-4c18-8dd4-5ea6c7082486"}
+[debug] [2024-05-08T05:25:33.960Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites pageToken=&pageSize=10
+[debug] [2024-05-08T05:25:34.990Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 200
+[debug] [2024-05-08T05:25:34.990Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites {"sites":[{"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"},{"name":"projects/consume-care/sites/consumecare","defaultUrl":"https://consumecare.web.app","appId":"1:876917470097:web:37a9cfbe2e5d69fa73e030","type":"USER_SITE"}]}
+[debug] [2024-05-08T05:25:34.991Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 
+[debug] [2024-05-08T05:25:35.414Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites 200
+[debug] [2024-05-08T05:25:35.414Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites {"sites":[{"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"},{"name":"projects/consume-care/sites/consumecare","defaultUrl":"https://consumecare.web.app","appId":"1:876917470097:web:37a9cfbe2e5d69fa73e030","type":"USER_SITE"}]}
+[debug] [2024-05-08T05:25:35.414Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config [none]
+[debug] [2024-05-08T05:25:36.844Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config 200
+[debug] [2024-05-08T05:25:36.845Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/consume-care/webApps/-/config {"projectId":"consume-care","storageBucket":"consume-care.appspot.com","locationId":"asia-southeast2","apiKey":"AIzaSyBodGJHul3KWdqNCrfCiJBeQid7mlkabyU","authDomain":"consume-care.firebaseapp.com","messagingSenderId":"876917470097"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-05-08T05:25:46.062Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care [none]
+[debug] [2024-05-08T05:25:47.064Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care 200
+[debug] [2024-05-08T05:25:47.065Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care {"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.3
+
+[info]   - Environments: .env
+
+
+[info]    Linting and checking validity of types ...
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/34) ...
+
+[info]    Generating static pages (8/34) 
+
+[info]    Generating static pages (16/34) 
+
+[info] null
+
+[info]    Generating static pages (25/34) 
+
+[info] null
+
+[info]  ✓ Generating static pages (34/34)
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (pages)                             Size     First Load JS
+┌ ○ /                                     5.75 kB         172 kB
+├   /_app                                 0 B            79.1 kB
+├ ○ /404                                  180 B          79.3 kB
+├ ○ /about                                4.46 kB         128 kB
+├ ƒ /api/getblog                          0 B            79.1 kB
+├ ○ /blog                                 5.12 kB         129 kB
+├ ○ /blog/[id]                            5.13 kB         172 kB
+├ ○ /components/blog                      1.46 kB         163 kB
+├ ○ /components/Container                 307 B          79.4 kB
+├ ○ /components/DarkSwitch                1.47 kB        80.6 kB
+├ ○ /components/Footer                    2.54 kB        84.3 kB
+├ ○ /components/Github                    1.22 kB        80.3 kB
+├ ○ /components/Hero                      952 B           120 kB
+├ ○ /components/navbar                    1.72 kB         126 kB
+├ ○ /components/profile                   1.36 kB         118 kB
+├ ○ /document                             670 B          79.8 kB
+├ ○ /quiz                                 5.32 kB         129 kB
+└ ○ /team                                 5.54 kB         130 kB
++ First Load JS shared by all             84 kB
+  ├ chunks/framework-2c16ac744b6cdea6.js  45.2 kB
+  ├ chunks/main-ac316e4816632f85.js       32.7 kB
+  └ other shared chunks (total)           6.09 kB
+
+[info] 
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info]  • non-static route /api/getblog
+[info] 
+[debug] [2024-05-08T05:26:27.827Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care [none]
+[debug] [2024-05-08T05:26:28.816Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care 200
+[debug] [2024-05-08T05:26:28.816Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/consume-care/sites/consume-care {"name":"projects/consume-care/sites/consume-care","defaultUrl":"https://consume-care.web.app","type":"DEFAULT_SITE"}

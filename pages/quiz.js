@@ -45,11 +45,12 @@ const Quiz = () => {
     const currentQuestionData = questions[currentQuestion];
     return (
       <motion.div
-        className='flex flex-col items-center justify-center h-full bg-skin-gray p-4 overflow-x-hidden'
+        className='flex flex-col items-center justify-center h-full bg-skin-gray p-8 overflow-x-hidden'
         initial={{ opacity: 0, x: -200 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
+        <div className='lg:mt-24'>
         <h2 className='text-xl font-bold mb-4'> Pernyataan {currentQuestionData.id} :</h2>
         <h2 className='text-xl font-bold mb-4'>{currentQuestionData.question}</h2>
         <ul className='space-y-2 flex-wrap'>
@@ -90,6 +91,7 @@ const Quiz = () => {
           >
             Next
           </button>
+        </div>
         </div>
       </motion.div>
     );
