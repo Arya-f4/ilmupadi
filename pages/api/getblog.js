@@ -3,6 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { firebaseConfig } from '../../config/firebaseConfig'; // Mengimpor konfigurasi Firebase dari file firebaseConfig
 import { query, limit } from "firebase/firestore";
+import firebase from 'firebase/compat/app';
+
 
 // Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);

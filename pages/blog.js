@@ -24,7 +24,6 @@ const Blog = () => {
         const data = await response.json();
         setBlogData(data);
         setLoading(false); // Mengubah loading menjadi false setelah data berhasil diambil
-        console.log(data)
       } catch (error) {
         console.error('Error fetching blog data:', error);
         setLoading(false); // Mengubah loading menjadi false jika terjadi error
@@ -40,7 +39,6 @@ const Blog = () => {
         const data = await response.json();
         setBlogData(data);
         setLoading(false); // Mengubah loading menjadi false setelah data berhasil diambil
-        console.log(data)
       } catch (error) {
         console.error('Error fetching blog data:', error);
         setLoading(false); // Mengubah loading menjadi false jika terjadi error

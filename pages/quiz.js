@@ -1,17 +1,24 @@
+import { useState } from 'react';
+
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import questions from '../database/dbquiz';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
-import { useState } from 'react';
 import Container from './components/Container';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { initializeApp } from "firebase/app";
+import { db, app } from '../utils/firebase';
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isAnswered, setIsAnswered] = useState(false);
-
+  const [userInfo, setUserInfo] = useState({ name: '', age: '' });
+  const [isUserInfoSubmitted, setIsUserInfoSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isResultSaved, setIsResultSaved] = useState(false);
   const handleSubmit = (answer) => {
     if (!isAnswered) {
       alert("Mohon Jawab Soal Dibawah, pertanyaannya cuman 10 kok!");
@@ -20,6 +27,11 @@ const Quiz = () => {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [questions[currentQuestion].id]: answer }));
     setCurrentQuestion(currentQuestion + 1);
     setIsAnswered(false);
+
+    if (currentQuestion === questions.length - 1 && answer !== undefined) {
+      setIsResultSaved(false); // Reset isResultSaved to false before calling saveResultToFirebase
+      saveResultToFirebase(answer);
+    }
   };
 
   const handlePrevious = () => {
@@ -41,6 +53,74 @@ const Quiz = () => {
     setAnswers((prevAnswers) => ({ ...prevAnswers, [questions[currentQuestion].id]: parseInt(value, 10) }));
     setIsAnswered(true);
   };
+
+  const handleUserInfoSubmit = (e) => {
+    e.preventDefault();
+    if (!userInfo.name || !userInfo.age) {
+      setErrorMessage('Please fill in your name and age');
+      return;
+    }
+    setIsUserInfoSubmitted(true);
+  };
+
+  const saveResultToFirebase = async () => {
+    try {
+      if (!userInfo.name || !userInfo.age) {
+        setErrorMessage('Please fill in your name and age');
+        return;
+      }
+      await addDoc(collection(db, 'quizResults'), {
+        name: userInfo.name,
+        age: userInfo.age,
+        score: result,
+        date: new Date()
+      });
+      setIsResultSaved(true); // Set isResultSaved to true after saving the result
+      console.log('Document successfully written!');
+    } catch (e) {
+      setErrorMessage(`Error adding document: ${e.message}`);
+      console.log('Error adding document: ', e);
+      console.error('Error adding document: ', e);
+    }
+  };
+
+  const renderUserInfoForm = () => (
+    <motion.div
+      className="flex flex-col items-center h-screen justify-center bg-skin-gray p-4 overflow-x-hidden"
+      initial={{ opacity: 0, x: -200 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <form onSubmit={handleUserInfoSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Nama:</label>
+          <input
+            type="text"
+            required
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+            value={userInfo.name}
+            onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Usia:</label>
+          <input
+            type="number"
+            required
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+            value={userInfo.age}
+            onChange={(e) => setUserInfo({ ...userInfo, age: e.target.value })}
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-skin-main hover:bg-lime-950 text-white font-bold py-2 px-4 rounded"
+        >
+          Mulai Kuis
+        </button>
+      </form>
+    </motion.div>
+  );
 
   const renderQuestion = () => {
     const currentQuestionData = questions[currentQuestion];
@@ -92,12 +172,14 @@ const Quiz = () => {
             Next
           </button>
         </div>
-        
+
       </motion.div>
     );
   };
-
   const renderResult = () => {
+    if (!isResultSaved) {
+      saveResultToFirebase(); // If not saved, save the result
+    }
     return (
       <motion.div className="h-screen bg-skin-gray"
         initial={{ opacity: 0 }}
@@ -124,6 +206,11 @@ const Quiz = () => {
                 <p className='text-lg'>Anda memiliki tingkat konsumerisme yang Sangat tinggi.</p>
               )
             }
+            {isResultSaved ? (
+              <p className='text-lg text-green-500'>Hasil quiz berhasil disimpan!</p>
+            ) : (
+              <p className='text-lg text-red-500'>Gagal menyimpan hasil quiz. Silakan coba lagi.</p>
+            )}
             <Link
               href={`/`}>
               <button
@@ -138,6 +225,7 @@ const Quiz = () => {
     );
   };
 
+
   return (
     <div className='bg-skin-gray'>
       <div className='h-screen bg-skin-gray'>
@@ -145,12 +233,18 @@ const Quiz = () => {
         <Head>
           <title>Quiz: Prediksi Konsumerisme</title>
         </Head>
-        {currentQuestion < questions.length ? (
-          renderQuestion()
+        {isUserInfoSubmitted ? (
+          currentQuestion < questions.length ? (
+            renderQuestion()
+          ) : (
+            renderResult()
+          )
         ) : (
-          renderResult()
+          renderUserInfoForm()
         )}
-
+        {errorMessage && (
+          <div className='text-red-500'>{errorMessage}</div>
+        )}
       </div>
       <Footer />
     </div>
