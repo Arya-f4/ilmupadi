@@ -1,14 +1,12 @@
 // Impor fungsi yang diperlukan dari SDK yang diperlukan
-import { initializeApp } from "firebase/app";
+
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { firebaseConfig } from '../../config/firebaseConfig'; // Mengimpor konfigurasi Firebase dari file firebaseConfig
+import { db } from '../../config/firebaseConfig'; // Mengimpor konfigurasi Firebase dari file firebaseConfig
 import { query, limit } from "firebase/firestore";
-import firebase from 'firebase/compat/app';
 
 
 // Inisialisasi Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+
 // Fungsi untuk mendapatkan data dari dokumen Firestore bernama 'blog_post' berdasarkan ID tertentu atau semua data jika tidak ada ID
 const getDataBlogPost = async (blogId, limitCount) => {
   const q = query(collection(db, "blog_post"), limit(limitCount));
