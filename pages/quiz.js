@@ -8,9 +8,8 @@ import Footer from './components/Footer';
 import Container from './components/Container';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { initializeApp } from "firebase/app";
-import { db, app } from '../utils/firebase';
 
+import { db } from '../config/firebaseConfig';
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -62,28 +61,56 @@ const Quiz = () => {
     }
     setIsUserInfoSubmitted(true);
   };
+  // old method
+  // const saveResultToFirebase = async () => {
+  //   try {
+  //     if (!userInfo.name || !userInfo.age) {
+  //       setErrorMessage('Please fill in your name and age');
+  //       return;
+  //     }
+  //     await addDoc(collection(db, 'quizResults'), {
+  //       name: userInfo.name,
+  //       age: userInfo.age,
+  //       score: result,
+  //       date: new Date()
+  //     });
+  //     setIsResultSaved(true); // Set isResultSaved to true after saving the result
+  //     console.log('Document successfully written!');
+  //   } catch (e) {
+  //     setErrorMessage(`Error adding document: ${e.message}`);
+  //     console.log('Error adding document: ', e);
+  //     console.error('Error adding document: ', e);
+  //   }
+  // };
 
   const saveResultToFirebase = async () => {
-    try {
-      if (!userInfo.name || !userInfo.age) {
-        setErrorMessage('Please fill in your name and age');
-        return;
-      }
-      await addDoc(collection(db, 'quizResults'), {
+    if (!userInfo.name || !userInfo.age) {
+      setErrorMessage('Please fill in your name and age');
+      return;
+    }
+
+    const result = await new Promise((resolve, reject) => {
+      addDoc(collection(db, 'quizResults'), {
         name: userInfo.name,
         age: userInfo.age,
         score: result,
         date: new Date()
-      });
-      setIsResultSaved(true); // Set isResultSaved to true after saving the result
-      console.log('Document successfully written!');
-    } catch (e) {
-      setErrorMessage(`Error adding document: ${e.message}`);
-      console.log('Error adding document: ', e);
-      console.error('Error adding document: ', e);
-    }
-  };
+      })
+        .then(() => {
+          setIsResultSaved(true);
+          console.log('Document successfully written!');
+          resolve();
+        })
+        .catch((error) => {
+          setErrorMessage(`Error adding document: ${error.message}`);
+          console.log('Error adding document: ', error);
+          console.error('Error adding document: ', error);
+          reject(error);
+        });
+    });
 
+    return result;
+  };
   const renderUserInfoForm = () => (
     <motion.div
       className="flex flex-col items-center h-screen justify-center bg-skin-gray p-4 overflow-x-hidden"
