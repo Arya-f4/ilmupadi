@@ -11,6 +11,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion'; // Menambahkan import motion dari framer-motion
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { app } from '../../config/firebaseConfig';
+
 const DetailedBlog = () => {
   const router = useRouter();
   const { id } = router.query;
@@ -68,7 +69,16 @@ const DetailedBlog = () => {
               <h1 className="text-2xl font-bold text-blue-600 mb-4">{blogData.title}</h1>
               <div className="bg-skin-gray p-4 border border-black dark:bg-trueGray-800 my-4 rounded-lg text-left"> {/* Menengahkan gambar */}
                 {imageUrl && (
-                  <Image
+                  <motion.img
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      x: 0,
+                    }}
+
+                    transition={{ duration: 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.9 }}
                     width={300}
                     height={300}
                     src={imageUrl}
@@ -100,7 +110,7 @@ const DetailedBlog = () => {
                             key={imgIndex}
                             width={300}
                             height={300}
-                            src={imageUrl}
+                            src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${(image.split('/').pop())}?alt=media`}
                             alt="Blog Image"
                             className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
                         ))}
