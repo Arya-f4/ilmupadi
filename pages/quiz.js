@@ -106,8 +106,8 @@ const Quiz = () => {
           <input
             type="number"
             required
-            min="0"
-            max="100"
+            min="14"
+            max="28"
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
             value={userInfo.age}
             onChange={(e) => setUserInfo({ ...userInfo, age: e.target.value })}
