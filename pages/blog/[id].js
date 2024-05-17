@@ -9,27 +9,45 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 import { motion } from 'framer-motion'; // Menambahkan import motion dari framer-motion
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { app } from '../../config/firebaseConfig';
 const DetailedBlog = () => {
   const router = useRouter();
   const { id } = router.query;
   const [blogData, setBlogData] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`../api/getblog?id=${id}`); // Mengambil data dari direktori api dengan menggunakan 'id' sebagai parameter
-        const data = await response.json();
-        setBlogData(data);
-        console.log(data);
-      } catch (error) {
-        console.error('Error fetching blog data:', error);
+  const [imageUrl, setImageUrl] = useState('');
+  const [loadingImage, setLoadingImage] = useState(false);
+  const [loadingData, setLoadingData] = useState(false);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`../api/getblog?id=${id}`);
+      const data = await response.json();
+      setBlogData(data);
+
+      if (data && data.length > 0) {
+        const headerImage = data[0].data.header_image;
+        if (headerImage && !imageUrl && !loadingImage) {
+          setLoadingImage(true);
+          const storage = getStorage();
+          const imageRef = ref(storage, `${headerImage}`);
+          const url = await getDownloadURL(imageRef);
+          setImageUrl(url);
+          setLoadingImage(false);
+        }
       }
-    };
+    } catch (error) {
+      console.error('Error fetching blog data:', error);
+      // Jika gagal, panggil fetchData lagi setelah jeda
+      setTimeout(fetchData, 1000); // Atur jeda 1 detik sebelum mencoba lagi
+    }
+  };
+
+  useEffect(() => {
     if (id) {
       fetchData();
     }
-  }, [id]);
-  console.log(blogData)
-
+  }, [id], [imageUrl], [loadingImage]);
 
   return (
     <div className='h-full bg-skin-gray'>
@@ -49,8 +67,15 @@ const DetailedBlog = () => {
             <div key={blog.id} className="drop-shadow-lg container mx-auto p-4 py-12 md:py-16 dark:bg-trueGray-800 rounded-2xl"> {/* Menambahkan dark mode */}
               <h1 className="text-2xl font-bold text-blue-600 mb-4">{blogData.title}</h1>
               <div className="bg-skin-gray p-4 border border-black dark:bg-trueGray-800 my-4 rounded-lg text-left"> {/* Menengahkan gambar */}
-                <Image width={300} height={300} src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${blog.data.header_image.split('/').pop()}?alt=media`} alt={blog.data.header_image} className="w-1/2 h-auto mx-auto" /> {/* Menengahkan gambar */}
-                <div className="flex-col items-start ml-4  ">
+                {imageUrl && (
+                  <Image
+                    width={300}
+                    height={300}
+                    src={imageUrl}
+                    alt={blogData.header_image}
+                    className="w-1/2 h-auto mx-auto"
+                  />
+                )} <div className="flex-col items-start ml-4  ">
                   <div className="text-4xl font-bold mt-2">{blog.data.name}</div>
                   <div className="text-gray-600 mt-4">Dipublikasikan pada {new Date(blog.data.publish_date.seconds * 1000).toLocaleDateString()}</div>
                   <div className="mt-4">

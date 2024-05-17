@@ -9,7 +9,7 @@ import Container from './components/Container';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { db } from '../config/firebaseConfig';
-
+import { recom } from '../database/dbrecom';
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -196,6 +196,9 @@ const Quiz = () => {
             </p>
             {result < 10 ? (
               <p className='text-lg'>Anda memiliki tingkat konsumerisme yang sangat rendah.</p>
+
+
+
             ) : result < 20 ? (
               <p className='text-lg'>Anda memiliki tingkat konsumerisme yang rendah.</p>
             )
@@ -219,8 +222,31 @@ const Quiz = () => {
               >
                 Back to home
               </button>
+
             </Link>
+            {result < 10 ? (
+              <p className='text-lg'>
+
+              </p>
+
+
+
+            ) : result < 20 ? (
+              <p className='text-lg'>
+                kk
+              </p>
+
+            )
+              : result < 35 ? (
+                <p className='text-lg'>aa</p>
+              ) : result < 45 ? (
+                <p className='text-lg'>Anda memiliki tingkat konsumerisme yang tinggi.</p>
+              ) : (
+                <p className='text-lg'>Anda memiliki tingkat konsumerisme yang Sangat tinggi.</p>
+              )
+            }
           </div>
+
         </Container>
       </motion.div>
     );
