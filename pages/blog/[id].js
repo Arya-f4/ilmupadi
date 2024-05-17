@@ -100,7 +100,7 @@ const DetailedBlog = () => {
                             key={imgIndex}
                             width={300}
                             height={300}
-                            src={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${(image.split('/').pop())}?alt=media`}
+                            src={imageUrl}
                             alt="Blog Image"
                             className="w-full md:w-1/2 lg:w-1/3 rounded-md mx-auto my-4" />
                         ))}
