@@ -2,7 +2,7 @@ export const teamData = [
   {
     id: 0,
     name: 'Natanael Gyrsan S.',
-    fakultas: 'Fakultas Ekonomi Budaya',
+    fakultas: 'Fakultas Ekonomi Bisnis',
     prodi: 'Akuntansi',
     gambar: '/team/natanael.png',
     email: 'natanael.suharyanto@gmail.com',
