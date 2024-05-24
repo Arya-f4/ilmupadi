@@ -54,12 +54,16 @@ const DetailedBlog = () => {
   return (
     <div className='h-full bg-skin-gray'>
       <Head>
-        <title>{blogData ? blogData.name : 'Detail Blog Post'}</title>
+        {blogData && blogData.map((blog, index) => (
+          <title key={blogData.id}>{blog.data.name}</title>
+        ))}
         <meta
           name="description"
           content={blogData ? blogData.description : 'Detail blog post page with specific content'}
         />
+
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
       <Navbar />
       {loadingData ? (
