@@ -55,7 +55,10 @@ const DetailedBlog = () => {
     <div className='h-full bg-skin-gray'>
       <Head>
         {blogData && blogData.map((blog, index) => (
-          <title key={blogData.id}>{blog.data.name}</title>
+          <title key={index}>{blog.data.name}</title>
+        ))}
+        {blogData && blogData.map((blog, index) => (
+          <link rel="canonical" key={index} href={`https://consumecare.site/blog/${blog.id}`} />
         ))}
         <meta
           name="description"
