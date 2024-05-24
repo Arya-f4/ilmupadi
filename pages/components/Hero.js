@@ -33,7 +33,7 @@ const Hero = () => {
                         >
                             <Link
                                 href="quiz"
-                                className="z-0 px-8 py-4 text-lg font-medium text-center text-white bg-skin-main hover:bg-green-950 rounded-md"
+                                className="z-0 px-8 py-4 text-lg font-medium text-center text-white bg-skin-main hover:bg-green-800 rounded-md"
                             >
                                 Coba Test Seberapa Konsumtif anda!
                             </Link>

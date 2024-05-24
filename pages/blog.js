@@ -117,7 +117,27 @@ const Blog = () => {
             </div>
           </div>
           {loading ? ( // Menampilkan "loading content" saat loading
-            <p>Loading content...</p>
+            <div className='h-screen flex items-center justify-center'>
+    <motion.div
+      className='flex items-center'
+    >
+      <motion.div
+        animate={{ scale: [1, 1.5, 1] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
+      ></motion.div>
+      <motion.div
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+        className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
+      ></motion.div>
+      <motion.div
+        animate={{ scale: [1, 1.3, 1] }}
+        transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+        className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
+      ></motion.div>
+    </motion.div>
+  </div>
           ) : (
             sortedFilteredBlogData && sortedFilteredBlogData.map((blog) => (
 
