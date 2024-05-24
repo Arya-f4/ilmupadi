@@ -11,6 +11,7 @@ export default function Document() {
    <meta name="description" content="Ilmu padi merupakan website campaign dari kelompok PDB Universitas Airlangga."/>
      <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+          <link rel="canonical" href="https://consumecare.site" />
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
         rel="stylesheet"

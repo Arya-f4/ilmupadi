@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import Head from 'next/head';
 import questions from '../database/dbquiz';
@@ -259,6 +258,11 @@ const Quiz = () => {
         <Navbar />
         <Head>
           <title>Quiz: Prediksi Konsumerisme</title>
+          <meta
+            name="description"
+            content="Consume care adalah platform yang menyediakan informasi seputar konsumsi"
+          />
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         {isUserInfoSubmitted ? (
           currentQuestion < questions.length ? (

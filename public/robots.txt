@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /quiz
+
+
+Sitemap: https://consumecare.site/api/sitemap
