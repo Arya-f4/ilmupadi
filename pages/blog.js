@@ -70,17 +70,46 @@ const Blog = () => {
           name="description"
           content="Consume Care blog merupakan tempat untuk membaca artikel-artikel terbaru seputar dunia konsumsi."
         />
+
+
+        <link rel="canonical" href="https://consumecare.site/blog/" />
+        <meta
+          name="og:title"
+          content='Blog Post Consume Care'
+        />
+        <meta
+          name='og:description'
+          content='Detail blog post page with specific content'
+        />
+        <meta
+          name='og:url'
+          content='https://consumecare.site/blog/'
+        />
+        <meta
+          name='og:type'
+          content='article'
+        />
+
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content="postingan consume care" />
+        <meta name='twitter:description' content="Detail blog post page with specific content" />
+        <meta name='twitter:url' content="https://consumecare.site/blog" />
+
+
+
+
+
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
       <div className='h-fit bg-skin-gray'>
 
         <Container className="h-full bg-skin-gray flex flex-wrap pt-24 ">
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className='text-4xl my-4 font-bold leading-snug text-center'>Blog Page</motion.div>
+            className='text-4xl my-4 font-bold leading-snug text-center'>Blog Page</motion.h1>
           <div className="right mt-10 ml-10">
             <div className="flex items-center bg-skin-gray rounded-full px-3 py-1">
               <span className="text-sm font-semibold mr-2">Filter by Tag:</span>
@@ -118,26 +147,26 @@ const Blog = () => {
           </div>
           {loading ? ( // Menampilkan "loading content" saat loading
             <div className='h-screen flex items-center justify-center'>
-    <motion.div
-      className='flex items-center'
-    >
-      <motion.div
-        animate={{ scale: [1, 1.5, 1] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
-      ></motion.div>
-      <motion.div
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-        className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
-      ></motion.div>
-      <motion.div
-        animate={{ scale: [1, 1.3, 1] }}
-        transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
-        className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
-      ></motion.div>
-    </motion.div>
-  </div>
+              <motion.div
+                className='flex items-center'
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.5, 1] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
+                ></motion.div>
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                  className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
+                ></motion.div>
+                <motion.div
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+                  className='w-8 h-8 border-4 border-t-4 border-gray-700 rounded-full mx-2'
+                ></motion.div>
+              </motion.div>
+            </div>
           ) : (
             sortedFilteredBlogData && sortedFilteredBlogData.map((blog) => (
 
