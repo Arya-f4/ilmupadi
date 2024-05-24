@@ -54,19 +54,49 @@ const DetailedBlog = () => {
   return (
     <div className='h-full bg-skin-gray'>
       <Head>
-        {blogData && blogData.map((blog, index) => (
-          <title key={index}>{blog.data.name}</title>
-        ))}
-        {blogData && blogData.map((blog, index) => (
-          <link rel="canonical" key={index} href={`https://consumecare.site/blog/${blog.id}`} />
-        ))}
-        <meta
-          name="description"
-          content={blogData ? blogData.description : 'Detail blog post page with specific content'}
-        />
 
-        <link rel="icon" href="/favicon.ico" />
+        {blogData && blogData.map((blog) => (
+          <>
+            <title>{blog.data.name}</title>
+            <link rel="canonical" href={`https://consumecare.site/blog/${blog.id}`} />
+            <link rel="alternate" type='application/json' href={`https://consumecare.site/api/getblog?id=${blog.id}`} />
+            <meta
+              name="description"
+              content={blogData ? blog.data.description : 'Detail blog post page with specific content'}
+            />
+            <meta
+              name="og:title"
+              content={blogData ? blog.data.name : 'Blog Post'}
+            />
+            <meta
+              name='og:description'
+              content={blogData ? blog.data.description : 'Detail blog post page with specific content'}
+            />
+            <meta
+              name='og:url'
+              content={`https://consumecare.site/blog/${blog.id}`}
+            />
+            <meta
+              name='og:image'
+              content={`https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2F${(blog.data.header_image.split('/').pop())}?alt=media`}
+            />
+            <meta
+              name='og:type'
+              content='article'
+            />
+            <meta name='og:updated_time' content={new Date(blog.data.created_on.seconds * 1000).toISOString()} />
+            <meta name='og:published_time' content={new Date(blog.data.publish_date.seconds * 1000).toISOString()} />
+            <meta name='article:published_time' content={new Date(blog.data.publish_date.seconds * 1000).toISOString()} />
+            <meta name='article:updated_time' content={new Date(blog.data.created_on.seconds * 1000).toISOString()} />
 
+            <meta name='twitter:card' content='summary_large_image' />
+            <meta name='twitter:title' content={blog.data.name} />
+            <meta name='twitter:description' content={blog.data.description} />
+            <meta name='twitter:url' content={`https://consumecare.site/blog/${blog.id}`} />
+
+            <link rel="icon" href="/favicon.ico" />
+          </>
+        ))}
       </Head>
       <Navbar />
       {loadingData ? (
