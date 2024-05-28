@@ -34,7 +34,7 @@ const Blog = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-4xl font-bold mb-4">Blog Recommendations</h1>
+      <h2 className="text-4xl font-bold mb-4">Blog Recommendations</h2>
       <p className="text-lg text-gray-600 mb-8">Check out these amazing blog posts!</p>
       <Container>
         <div className="grid grid-cols-1 gap-4">
@@ -65,6 +65,7 @@ const Blog = () => {
                     height={100}
                     transition={{ duration: 0.5 }}
                     whileHover={{ scale: 1.04 }}
+                    title={blog.data.name}
                     whileTap={{ scale: 0.9 }}
                   />
                   <h3 className="text-2xl font-semibold mb-2 md:text-4xl lg:text-6xl">

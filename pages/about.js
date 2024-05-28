@@ -18,6 +18,20 @@ const AboutPage = () => {
                     content="Consume Care merupakan tempat untuk membaca artikel-artikel terbaru seputar dunia konsumsi."
                 />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="canonical" href="https://consumecare.site/about" />
+                <meta name="og:title" content="About Consume Care" />
+                <meta name="og:description" content="Consume Care adalah sekumpulan kelompok Pembelajaran Dasar Bersama dari Universitas Airlangga yang berambisi untuk membuat para generasi muda untuk tidak konsumtif." />
+                <meta name="og:url" content="https://consumecare.site/about" />
+                <meta name="og:type" content="article" />
+                <meta name="robots" content="follow, index" />
+                <meta name="googlebot" content="follow, index" />
+                <meta name="bingbot" content="follow, index" />
+                <meta name="author" content="Consume Care" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="About Consume Care" />
+                <meta name="twitter:description" content="Consume Care adalah sekumpulan kelompok Pembelajaran Dasar Bersama dari Universitas Airlangga yang berambisi untuk membuat para generasi muda untuk tidak konsumtif." />
+                <meta name="twitter:url" content="https://consumecare.site/about" />
+                
             </Head>
             <Navbar />
             <motion.div
@@ -26,7 +40,7 @@ const AboutPage = () => {
                 initial="hidden"
                 animate="visible"
             >
-                <div className="text-4xl font-bold mb-4">Consume Care</div>
+                <h1 className="text-4xl font-bold mb-4">Consume Care</h1>
                 <p className="text-lg text-center max-w-md">
                     Consume Care adalah sekumpulan kelompok Pembelajaran Dasar Bersama dari Universitas Airlangga yang berambisi untuk membuat para generasi muda untuk tidak konsumtif.
                 </p>

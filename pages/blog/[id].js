@@ -64,6 +64,10 @@ const DetailedBlog = () => {
               name="description"
               content={blogData ? blog.data.description : 'Detail blog post page with specific content'}
             />
+             <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <meta name="author" content="Consume Care" />
             <meta
               name="og:title"
               content={blogData ? blog.data.name : 'Blog Post'}

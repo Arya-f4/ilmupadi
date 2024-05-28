@@ -94,7 +94,10 @@ const Blog = () => {
         <meta name='twitter:title' content="postingan consume care" />
         <meta name='twitter:description' content="Detail blog post page with specific content" />
         <meta name='twitter:url' content="https://consumecare.site/blog" />
-
+        <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+  <meta name="author" content="Consume Care" />
 
 
 
@@ -196,6 +199,7 @@ const Blog = () => {
                       transition={{ duration: 0.5 }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.9 }}
+                      title='Consume Care Image'
                     />
                     <div className="flex flex-col items-start ml-4">
 
