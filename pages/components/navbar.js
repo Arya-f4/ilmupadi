@@ -25,12 +25,13 @@ const Navbar = () => {
                 <Link href="/">
                   <span className="flex items-center space-x-2 text-2xl font-medium  text-black">
                     <span>
-                      <Image
+                    <Image
                         src="/favnobg.png"
-                        alt="logo ilmu padi"
+                        alt="logo Consume Care Logo"
                         width={300}
                         height={300}
                         className="w-10"
+                        title="Consume Care Logo"
                       />
                     </span>
                     <div className="text-green-700">Consume Care</div>
