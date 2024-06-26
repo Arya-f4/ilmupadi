@@ -26,7 +26,7 @@ export default function Document() {
   <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2Flogo.png?alt=media" />
   <meta property="og:image:secure_url" content="https://firebasestorage.googleapis.com/v0/b/consume-care.appspot.com/o/images%2Flogo.png?alt=media" />
   <meta property="og:image:width" content="1200" />
-  
+  <meta name="google-site-verification" content="1GvzPKzTmI35fHDFSk2C4xRqj4q5mbPZJ4Ud1XY3nkk" />
      <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link rel="icon" type="image/x-icon" href="/favicon.ico" />
           <link rel="canonical" href="https://consumecare.site" />
